@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Ray Caster Demo</title>
+		<style>
+			*{margin:0;padding:0}
+			#renderer{background-color:#eee;position:absolute;left:0;top:0;}
+			#canvas{display:none}
+			#pause{
+				background-color: rgba(230, 230, 230, 0.5);
+				margin: 0;
+				padding: 10px;
+				font: 36px Arial;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				-ms-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+				display: none;
+				place-items: center;
+			}
+			#pause button {
+				background-color: rgba(119, 119, 119, 0.5);
+				border: none;
+				margin: 4px;
+				padding: 4px;
+				border-radius: 0;
+				transition: 0.2s;
+				outline: none;
+			}
+			#pause button:hover {
+				background-color: rgba(85, 85, 85, 0.5);
+				margin: 0px;
+				padding: 8px;
+			}
+			#options {
+				font-size: 12px;
+				display: grid;
+				place-items: center;
+			}
+			#options input{outline:none}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<canvas id="renderer"></canvas>
+		<p id="fps"style="position:absolute;top:0;left:0">FPS:</p>
+		<div id="pause">
+			PAUSED<br>
+			<button onclick="togglePause()">Resume</button>
+			<div id="options">
+				<br><b>OPTIONS:</b>
+				<span>Sensitivity: 30</span><input type="range" min="1" max="100" value="30" id="sensitivitySlider"><br>
+				<span>Ray Spacing (to reduce draw): 2</span><input type="range" min="1" max="32" value="2" id="raySlider"><br>
+				<span>FOV: 75°</span><input type="range" min="30" max="180" value="60" id="FOVSlider"><br>
+				Fisheye Effect: <input type="checkbox" id="fisheyeBox"><br>
+				Use Keyboard direction controls: <input type="checkbox" id="keyboardBox" checked><br>
+				Use Mouse direction controls: <input type="checkbox" id="mouseBox"><br>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
+
